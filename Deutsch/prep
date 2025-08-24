@@ -1,0 +1,53 @@
+import random
+
+# List of verbs with prepositions, case, and Spanish translation
+verbs = [
+    {"verb": "achten", "prep": "auf", "case": "Akk", "translation": "prestar atención a"},
+    {"verb": "antworten", "prep": "auf", "case": "Akk", "translation": "responder a"},
+    {"verb": "sich freuen", "prep": "auf", "case": "Akk", "translation": "esperar con ilusión"},
+    {"verb": "warten", "prep": "auf", "case": "Akk", "translation": "esperar a"},
+    {"verb": "denken", "prep": "an", "case": "Akk", "translation": "pensar en"},
+    {"verb": "teilnehmen", "prep": "an", "case": "Dat", "translation": "participar en"},
+    {"verb": "helfen", "prep": "bei", "case": "Dat", "translation": "ayudar en"},
+    {"verb": "fragen", "prep": "nach", "case": "Dat", "translation": "preguntar por"},
+    {"verb": "sich kümmern", "prep": "um", "case": "Akk", "translation": "ocuparse de"},
+    {"verb": "sprechen", "prep": "über", "case": "Akk", "translation": "hablar sobre"},
+    {"verb": "sich erinnern", "prep": "an", "case": "Akk", "translation": "recordar algo"},
+    {"verb": "sich interessieren", "prep": "für", "case": "Akk", "translation": "interesarse por"},
+    {"verb": "arbeiten", "prep": "an", "case": "Dat", "translation": "trabajar en"},
+    {"verb": "sich bedanken", "prep": "bei", "case": "Dat", "translation": "agradecer a"},
+    {"verb": "fragen", "prep": "nach", "case": "Dat", "translation": "preguntar por"},
+    {"verb": "sich freuen", "prep": "über", "case": "Akk", "translation": "alegrarse por"},
+    {"verb": "berichten", "prep": "über", "case": "Akk", "translation": "informar sobre"},
+    {"verb": "sich wundern", "prep": "über", "case": "Akk", "translation": "sorprenderse por"},
+    {"verb": "sich beschäftigen", "prep": "mit", "case": "Dat", "translation": "ocuparse de"},
+    {"verb": "zufrieden sein", "prep": "mit", "case": "Dat", "translation": "estar satisfecho con"}
+    # Add more to reach 50+ verbs
+]
+
+score = 0
+wrong_answers = []
+
+print("German Verb + Preposition Quiz!\nType the correct preposition and case (Akk/Dativ).\n")
+
+for _ in range(10):  # quiz length
+    q = random.choice(verbs)
+    print(f"Verb: {q['verb']}")
+    prep_answer = input("Preposition: ").strip().lower()
+    case_answer = input("Case (Akk/Dativ): ").strip().capitalize()
+    
+    if prep_answer == q["prep"] and case_answer == q["case"]:
+        print("✅ Correct!\n")
+        score += 1
+    else:
+        print(f"❌ Wrong. Correct: {q['verb']} {q['prep']} ({q['case']})")
+        wrong_answers.append(f"{q['verb']} {q['prep']} ({q['case']}) → {q['translation']}")
+    
+    print(f"Translation: {q['translation']}\n")
+
+print(f"Your score: {score}/10\n")
+
+if wrong_answers:
+    print("Review the verbs you missed:")
+    for item in wrong_answers:
+        print(item)
