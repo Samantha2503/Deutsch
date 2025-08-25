@@ -99,7 +99,7 @@ if "submitted" not in st.session_state:
 if st.button("Next Question"):
     st.session_state.current_q = random.choice(verbs)
     st.session_state.submitted = False
-    st.experimental_user()
+    st.stop()
 
 
 
