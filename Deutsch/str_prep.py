@@ -91,10 +91,10 @@ if st.button("Submit") and not st.session_state.submitted:
         )
     st.info(f"Translation: {st.session_state.current_q['translation']}")
 
-if "current_q" not in st.session_state:
-      st.session_state.current_q = random.choice(verbs)
-if "submitted" not in st.session_state: 
-      st.session_state.submitted = False
+# if "current_q" not in st.session_state:
+#      st.session_state.current_q = random.choice(verbs)
+#if "submitted" not in st.session_state: 
+#      st.session_state.submitted = False
     
 if st.button("Next Question"):
     st.session_state.current_q = random.choice(verbs)
