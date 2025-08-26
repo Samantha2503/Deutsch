@@ -101,18 +101,17 @@ with tab1:
 
     st.subheader(f"Verb: {st.session_state.current_q['verb']}")
 
-    # Input fields
-    st.session_state.prep = st.text_input("Preposition:", value=st.session_state.prep, key="quiz_prep_input")
-    st.session_state.case = st.radio("Case:", ["Akk", "Dat"], index=0 if st.session_state.case=="Akk" else 1, key="quiz_case_radio")
+    # Create a form for Submit
+    with st.form(key="quiz_form"):
+        prep_input = st.text_input("Preposition:", key="quiz_prep_input")
+        case_input = st.radio("Case:", ["Akk", "Dat"], index=0, key="quiz_case_radio")
+        submitted = st.form_submit_button("Submit")
 
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("Submit", key="quiz_submit") and not st.session_state.submitted:
-            st.session_state.submitted = True
+        if submitted:
             correct_prep = st.session_state.current_q["prep"]
             correct_case = st.session_state.current_q["case"]
 
-            if st.session_state.prep.strip().lower() == correct_prep and st.session_state.case == correct_case:
+            if prep_input.strip().lower() == correct_prep and case_input == correct_case:
                 st.success("✅ Correct!")
                 st.session_state.score += 1
             else:
@@ -121,19 +120,25 @@ with tab1:
                     f"{st.session_state.current_q['verb']} {correct_prep} ({correct_case}) → {st.session_state.current_q['translation']}"
                 )
             st.info(f"Translation: {st.session_state.current_q['translation']}")
+            st.session_state.submitted = True
 
-    with col2:
-        if st.button("Next Question", key="quiz_next"):
-            st.session_state.current_q = random.choice(verbs)
-            st.session_state.submitted = False
-            st.session_state.prep = ""
-            st.session_state.case = "Akk"
+    # Define a function to reset the question + inputs
+    def next_question():
+        st.session_state.current_q = random.choice(verbs)
+        st.session_state.submitted = False
+        st.session_state.quiz_prep_input = ""
+        st.session_state.quiz_case_radio = "Akk"
+
+    # Next Question button with callback
+    st.button("Next Question", key="quiz_next", on_click=next_question)
 
     st.write(f"Score: {st.session_state.score}")
+
     if st.session_state.wrong_answers:
         with st.expander("Review wrong answers"):
             for item in st.session_state.wrong_answers:
                 st.write(item)
+
 
 # ----------------------------
 # TAB 2: FLASHCARDS
