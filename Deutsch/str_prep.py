@@ -1,7 +1,9 @@
 import streamlit as st
 import random
 
-# List of verbs with prepositions, case, and Spanish translation
+# ----------------------------
+# Data
+# ----------------------------
 verbs = [
     {"verb": "achten", "prep": "auf", "case": "Akk", "translation": "prestar atención a"},
     {"verb": "sich engagieren", "prep": "für", "case": "Akk", "translation": "comprometerse con"},
@@ -55,8 +57,10 @@ verbs = [
     {"verb": "zweifeln", "prep": "an", "case": "Dat", "translation": "dudar de"}
 ]
 
+
+
 # ----------------------------
-# SESSION STATE INIT
+# Session State Initialization
 # ----------------------------
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -75,13 +79,21 @@ if "flashcard_index" not in st.session_state:
 if "show_translation" not in st.session_state:
     st.session_state.show_translation = False
 
-# ----------------------------
-# TABS
-# ----------------------------
-tab1, tab2 = st.tabs(["Quiz", "Flashcards"])
+# Assign unique colors to each preposition
+prepositions = sorted(set([v["prep"] for v in verbs]))
+colors = ["#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231",
+          "#911eb4", "#46f0f0", "#f032e6", "#bcf60c", "#fabebe",
+          "#008080", "#e6beff", "#9a6324", "#fffac8", "#800000",
+          "#aaffc3", "#808000", "#ffd8b1", "#000075", "#808080"]
+prep_colors = {prep: colors[i % len(colors)] for i, prep in enumerate(prepositions)}
 
 # ----------------------------
-# QUIZ TAB
+# Tabs
+# ----------------------------
+tab1, tab2, tab3 = st.tabs(["Quiz", "Flashcards", "Preposition List"])
+
+# ----------------------------
+# TAB 1: QUIZ
 # ----------------------------
 with tab1:
     st.title("German Verb + Preposition Quiz")
@@ -90,14 +102,12 @@ with tab1:
     st.subheader(f"Verb: {st.session_state.current_q['verb']}")
 
     # Input fields
-    st.session_state.prep = st.text_input("Preposition:", value=st.session_state.prep, key="prep_input")
-    st.session_state.case = st.radio("Case:", ["Akk", "Dat"], index=0 if st.session_state.case=="Akk" else 1, key="case_radio")
+    st.session_state.prep = st.text_input("Preposition:", value=st.session_state.prep, key="quiz_prep_input")
+    st.session_state.case = st.radio("Case:", ["Akk", "Dat"], index=0 if st.session_state.case=="Akk" else 1, key="quiz_case_radio")
 
-    # Buttons
     col1, col2 = st.columns(2)
-
     with col1:
-        if st.button("Submit") and not st.session_state.submitted:
+        if st.button("Submit", key="quiz_submit") and not st.session_state.submitted:
             st.session_state.submitted = True
             correct_prep = st.session_state.current_q["prep"]
             correct_case = st.session_state.current_q["case"]
@@ -113,7 +123,7 @@ with tab1:
             st.info(f"Translation: {st.session_state.current_q['translation']}")
 
     with col2:
-        if st.button("Next Question"):
+        if st.button("Next Question", key="quiz_next"):
             st.session_state.current_q = random.choice(verbs)
             st.session_state.submitted = False
             st.session_state.prep = ""
@@ -126,24 +136,35 @@ with tab1:
                 st.write(item)
 
 # ----------------------------
-# FLASHCARD TAB
+# TAB 2: FLASHCARDS
 # ----------------------------
 with tab2:
-    st.title("Flashcards: German Verb + Preposition")
-
+    st.title("Flashcards")
     card = verbs[st.session_state.flashcard_index]
-    st.subheader(f"{card['verb']} {card['prep']} ({card['case']})")
+
+    st.markdown(f"""
+        <div style="border:2px solid #444; border-radius:10px; padding:20px; background-color:#f7f7f7; font-size:20px;">
+        <b>{card['verb']}</b> <span style='color:{prep_colors[card["prep"]]}'>{card['prep']}</span> ({card['case']})
+        </div>
+    """, unsafe_allow_html=True)
 
     if st.session_state.show_translation:
         st.info(f"Translation: {card['translation']}")
 
     col1, col2 = st.columns(2)
-
     with col1:
-        if st.button("Flip Card"):
+        if st.button("Flip Card", key="flashcard_flip"):
             st.session_state.show_translation = not st.session_state.show_translation
-
     with col2:
-        if st.button("Next Card"):
+        if st.button("Next Card", key="flashcard_next"):
             st.session_state.flashcard_index = random.randint(0, len(verbs)-1)
             st.session_state.show_translation = False
+
+# ----------------------------
+# TAB 3: PREPOSITION LIST
+# ----------------------------
+with tab3:
+    st.title("All Verbs Sorted by Preposition")
+    sorted_verbs = sorted(verbs, key=lambda x: x["prep"])
+    for v in sorted_verbs:
+        st.markdown(f"**{v['verb']}** <span style='color:{prep_colors[v['prep']]}'> {v['prep']} </span> ({v['case']}) → {v['translation']}", unsafe_allow_html=True)
