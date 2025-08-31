@@ -3,7 +3,7 @@ import pandas as pd
 import random
 import os
 
-CSV_FILE = "vocab.csv"
+CSV_FILE = "Deutsch/vocab.csv"
 
 
 def color_article(word: str) -> str:
