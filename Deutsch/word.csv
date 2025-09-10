@@ -81,72 +81,73 @@ der Tintenfisch,squid; octopus,14
 die Ziege,goat,14
 der Hirsch,deer; stag,14
 der Fuchs,fox,14
-merkwürdig,strange; odd; peculiar,15
-der Titel,title,15
-körperlich,physical,15
-humorvoll,humorous,15
-sich duschen,to shower,15
-die Darstellung,presentation; depiction,15
-der Darsteller,actor,15
-die Darstellerin,actress,15
-der Gedanke,thought,15
-die Begründung,justification; reasoning,15
-die Entwicklung,development,15
-die Intelligenz,intelligence,15
-die Krise,crisis,15
-der Streit,argument; quarrel,15
-weinen,to cry,15
-der Krieg,war,15
-jedoch,however; nevertheless,15
-das Herzklopfen,heartbeat; heart pounding,15
-klopfen,to knock; to beat,15
-der Zorn,anger; rage,15
-weise,wise,15
-sich bemühen,to make an effort,15
-beeindrucken,to impress,15
-die Liebe,love,15
-die Vorwahl,area code,16
-sperren,to block; to lock,16
-die Beratung,consultation; advice,16
-abheben,to withdraw (money),16
-der Wert,value,16
-das Bargeld,cash,16
-der Geldschein,banknote; bill,16
-die Banknote,banknote,16
-der Schalter,counter (at bank/post office),16
-das Konto,account,16
-der Geldautomat,ATM,16
-der Bankomat,ATM (Austria),16
-die Überweisung,bank transfer,16
-die Zinsen,interest (financial),16
-der Kredit,loan; credit,16
-die Schulden,debt,16
-je ... umso,the more ... the more,16
-das Gebiet,area; field,16
-grundsätzlich,basically; in principle,16
-entweder ... oder,either ... or,16
-nachfragen,to ask; to inquire,16
-der Hinweis,tip; clue; piece of information,16
-melden (sich),to report; to get in touch,16
-angestellt (sein),to be employed,16
-der Schaden,damage,16
-verursachen,to cause,16
-sogenannt-,so-called,16
-finanzieren,to finance,16
-der Vermieter,landlord,16
-die Vermieterin,landlady,16
-die Absicht,intention,16
-beschädigen,to damage,16
-jeweils,respectively; each,16
-wertvoll,valuable,16
-abstellen,to turn off; to park,16
-der Lärm,noise,16
-die Cafeteria,cafeteria,16
-dankbar,grateful,16
-soviel,as much as,16
-sich erkundigen,to inquire; to ask about,16
-das Werk,work (of art, literature, etc.),16
-erstellen,to create; to compile,16
-politisch,political,16
-die Katastrophe,catastrophe; disaster,16
-farbig,colored,16
+word,translation,lektion
+merkwürdig,"strange; odd; peculiar",15
+der Titel,"title",15
+körperlich,"physical",15
+humorvoll,"humorous",15
+sich duschen,"to shower",15
+die Darstellung,"presentation; depiction",15
+der Darsteller,"actor",15
+die Darstellerin,"actress",15
+der Gedanke,"thought",15
+die Begründung,"justification; reasoning",15
+die Entwicklung,"development",15
+die Intelligenz,"intelligence",15
+die Krise,"crisis",15
+der Streit,"argument; quarrel",15
+weinen,"to cry",15
+der Krieg,"war",15
+jedoch,"however; nevertheless",15
+das Herzklopfen,"heartbeat; heart pounding",15
+klopfen,"to knock; to beat",15
+der Zorn,"anger; rage",15
+weise,"wise",15
+sich bemühen,"to make an effort",15
+beeindrucken,"to impress",15
+die Liebe,"love",15
+die Vorwahl,"area code",16
+sperren,"to block; to lock",16
+die Beratung,"consultation; advice",16
+abheben,"to withdraw (money)",16
+der Wert,"value",16
+das Bargeld,"cash",16
+der Geldschein,"banknote; bill",16
+die Banknote,"banknote",16
+der Schalter,"counter (at bank/post office)",16
+das Konto,"account",16
+der Geldautomat,"ATM",16
+der Bankomat,"ATM (Austria)",16
+die Überweisung,"bank transfer",16
+die Zinsen,"interest (financial)",16
+der Kredit,"loan; credit",16
+die Schulden,"debt",16
+je ... umso,"the more ... the more",16
+das Gebiet,"area; field",16
+grundsätzlich,"basically; in principle",16
+entweder ... oder,"either ... or",16
+nachfragen,"to ask; to inquire",16
+der Hinweis,"tip; clue; piece of information",16
+melden (sich),"to report; to get in touch",16
+angestellt (sein),"to be employed",16
+der Schaden,"damage",16
+verursachen,"to cause",16
+sogenannt-,"so-called",16
+finanzieren,"to finance",16
+der Vermieter,"landlord",16
+die Vermieterin,"landlady",16
+die Absicht,"intention",16
+beschädigen,"to damage",16
+jeweils,"respectively; each",16
+wertvoll,"valuable",16
+abstellen,"to turn off; to park",16
+der Lärm,"noise",16
+die Cafeteria,"cafeteria",16
+dankbar,"grateful",16
+soviel,"as much as",16
+sich erkundigen,"to inquire; to ask about",16
+das Werk,"work (of art, literature, etc.)",16
+erstellen,"to create; to compile",16
+politisch,"political",16
+die Katastrophe,"catastrophe; disaster",16
+farbig,"colored",16
