@@ -169,4 +169,4 @@ with tabs[3]:
 
                 # Move to next word
                 st.session_state.index = (st.session_state.index + 1) % len(st.session_state.word_list)
-                st.experimental_rerun()  # Clears the input field
+                st.experimental_user()  # Clears the input field
